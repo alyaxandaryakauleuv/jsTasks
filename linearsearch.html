@@ -1,0 +1,39 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Search</title>
+</head>
+<body>
+    <h2>Линейный и бинарный поиск на JavaScript</h2>
+    <script>
+
+        function linearSearch(arr, value) {
+            var index = -1;
+
+            for(var i = 0; i < arr.length; i++)
+            {
+                if(arr[i] === value)
+                {
+                    index = i;
+                }
+            }
+
+            if (index > 0) {
+                return index;
+            }
+            else {
+                return document.writeln("There is no such element");
+            }
+        }
+
+        const arr = [3, 14, 15, 92, 6, 2, 71, 82];
+        const value = 7;
+        document.writeln("Исходный массив: " + arr + "<br>");
+        document.writeln("Искомый элемент: " + value + "<br>");
+
+        document.writeln("Линейный поиск: " + linearSearch(arr, value) + "<br>");
+    </script>
+</body>
+</html>
