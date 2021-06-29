@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Quicksort</title>
+</head>
+<body>
+    <h2>Сортировка (quicksort) на JavaScript</h2>
+    <script>
+        function quicksort(arr) {
+            if (arr.length > 1) {
+                qs(arr, 0, arr.length - 1);
+            }
+        }
+
+        function qs(arr, originleft, originright) {
+            var left = originleft, right = originright;
+            var pivot = Math.floor((arr[left] + arr[right])/2);  // Math.floor((originleft + originright)/2);
+            var tmp;
+            do {
+                document.write("starting left: " + left + " starting right " + right + "<br>");
+                while ((arr[left] < pivot) && (left < originright)) {
+                    left++;
+                }
+                while ((arr[right] > pivot) && (right > originleft)) {
+                    right--;
+                }
+                document.write("swapping left: " + left + " swapping right " + right + "<br>");
+                if (left <= right) {
+                    tmp = arr[right];
+                    arr[right] = arr[left];
+                    arr[left] = tmp;
+                    left++;
+                    right--;
+                }
+                document.write("result left: " + left + " result right " + right + "<br>");
+                document.write("итерация сортировки: " + arr + "<br><br>");
+
+            } while (left <= right)
+
+            if ((originleft < right) && ((right - originleft) > 1)) {
+                document.write("sorting left part" + "<br>");
+                qs(arr, originleft, right);
+            }
+            if ((left < originalright) && ((right - originleft) > 1)) {
+                document.write("sorting right part" + "<br>");
+                qs(arr, left, originright);
+            }
+        }
+
+        const arr = [47, 3, 4, 81, 17, 22, 1, 16];
+        document.write("Исходный массив: " + arr + "<br>");
+        quicksort(arr);
+        document.write("Отсортированный массив: (quicksort)" + arr + "<br>");
+
+    </script>
+</body>
+</html>
