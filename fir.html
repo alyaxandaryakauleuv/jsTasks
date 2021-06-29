@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Fir</title>
+</head>
+<body>
+    <h2>Построение астерисков на JavaScript</h2>
+    <script>
+        function firDraw(height) {
+            for (var i = height; i > 0; i--) {
+                for (var j = 0; j < i; j++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+        }
+        var height = 5;
+        firDraw(height);
+    </script>
+</body>
+</html>
